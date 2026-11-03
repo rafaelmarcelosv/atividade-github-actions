@@ -21,5 +21,6 @@ jobs:
           echo "Diretório de trabalho: ${{ github.workspace }}"
           ls -la ${{ github.workspace }}
 
-      - name: Status final
-        run: echo "Status da execução: ${{ job.status }}."
+            - name: Status final
+        run: |
+          echo "Status da execução: ${{ job.status }}."
