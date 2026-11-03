@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Informar evento acionador
-        run: echo "Workflow disparado pelo evento ${{ github.event_name }}."
+        run: |
+          echo "Workflow disparado pelo evento ${{ github.event_name }}."
 
       - name: Informar SO do runner
-        run: echo "Executando em uma máquina virtual ${{ runner.os }}."
+        run: |
+          echo "Executando em uma máquina virtual ${{ runner.os }}."
 
       - name: Clonar repositório
         uses: actions/checkout@v4
@@ -19,8 +21,8 @@ jobs:
       - name: Inspecionar arquivos clonados
         run: |
           echo "Diretório de trabalho: ${{ github.workspace }}"
-          ls -la ${{ github.workspace }}
+          ls -la "${{ github.workspace }}"
 
-            - name: Status final
+      - name: Status final
         run: |
           echo "Status da execução: ${{ job.status }}."
